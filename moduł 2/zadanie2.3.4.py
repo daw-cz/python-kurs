@@ -16,12 +16,12 @@ print (my_l)
 # sposób 2 tworząc nową listę
 
 my_l2 = [
-'włącz czajnik',
-'znajdź opakowanie herbaty',
-'zalej herbatę',
-'nalej wody do czajnika',
-'wyjmij kubek',
-'włóż herbatę do kubka'
+    'włącz czajnik',
+    'znajdź opakowanie herbaty',
+    'zalej herbatę',
+    'nalej wody do czajnika',
+    'wyjmij kubek',
+    'włóż herbatę do kubka'
 ]
 
 poprawna_kolejność = [
