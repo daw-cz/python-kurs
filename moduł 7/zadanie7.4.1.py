@@ -97,7 +97,7 @@ if found:
     print(f"Liczba wyświetleń filmu: {found.views}")
 
 print("\n--- Najpopularniejsze tytuły ---")
-print(top_titles(library, limit=2))
+print(top_titles(library))
 
 print("\n--- Najpopularniejsze seriale ---")
-print(top_titles(library, limit=2, content_type="series"))
+print(top_titles(library, content_type="series"))
