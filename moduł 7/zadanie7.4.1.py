@@ -42,8 +42,6 @@ def search(library, title):
 
 
 def generate_views(library):
-    if not library:
-        return
     random_item = random.choice(library)
     random_views = random.randint(1, 100)
     random_item.views += random_views
