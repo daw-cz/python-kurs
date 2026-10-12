@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Walut</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .card {
+            background: white;
+            max-width: 500px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .card-header {
+            background-color: #2563eb;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+        }
+        .card-body {
+            padding: 24px;
+        }
+        .mb-3 {
+            margin-bottom: 16px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #374151;
+        }
+        .form-select, .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .btn {
+            width: 100%;
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #059669;
+        }
+        .alert {
+            padding: 16px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .alert-danger {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+        .alert-success {
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 1px solid #6ee7b7;
+        }
+        .fs-3 {
+            font-size: 24px;
+            margin: 8px 0 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <h2 style="margin:0;">Kalkulator Walut</h2>
+        </div>
+        <div class="card-body">
+            
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="waluta" class="form-label">Wybierz walutę:</label>
+                    <select class="form-select" id="waluta" name="waluta" required>
+                        {% for kod in kursy.keys() %}
+                            <option value="{{ kod }}" {% if kod == wybrana_waluta %}selected{% endif %}>
+                                {{ kod }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="ilosc" class="form-label">Ilość jednostek do kupienia</label>
+                    <input type="number" step="0.01" class="form-control" id="ilosc" name="ilosc" 
+                           value="{{ ilosc if ilosc is not none else '' }}" required>
+                </div>
+
+                <button type="submit" class="btn">Przelicz</button>
+            </form>
+
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+
+            {% if wynik is not none %}
+                <div class="alert alert-success" role="alert">
+                    <strong style="font-size: 14px; text-transform: uppercase; color: #047857;">Koszt operacji:</strong>
+                    <p class="fs-3"><strong>{{ wynik }} PLN</strong></p>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+</body>
+</html>
