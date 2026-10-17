@@ -31,11 +31,24 @@ class BookManager:
     def create(self, data):
         data.pop('csrf_token', None)
         self.books.append(data)
+        self.save_all()
+        return True
 
     def update(self, index, data):
-        if 0 <= index < len(self.books):
+        book = self.get(index)
+        if book:
             data.pop('csrf_token', None)
             self.books[index] = data
+            self.save_all()
+            return True
+        return False
 
+    def delete(self, index):
+        book = self.get(index)
+        if book:
+            self.books.remove(book)
+            self.save_all()
+            return True
+        return False
 
 books = BookManager()
