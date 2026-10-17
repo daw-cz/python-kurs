@@ -24,7 +24,7 @@ flask run
 ```
 
 Aplikacja będzie dostępna w przeglądarce pod adresem:
-`127.0.0.1:5000/books/`
+`localhost:5000/books/`
 
 ## Jak używać aplikacji
 
