@@ -33,7 +33,7 @@ Aplikacja będzie dostępna w przeglądarce pod adresami:
 * **Dodawanie**: Użyj formularza na dole strony głównej, wpisz dane książki i kliknij "Dodaj książkę".
 * **Edycja**: Kliknij w tytuł dowolnej książki na liście, aby przejść do formularza edycji, zmień dane i kliknij "Zapisz zmiany".
 
-## Interfejs REST API (v1)
+## Interfejs REST API
 
 Aplikacja udostępnia interfejs API. Wszystkie żądania przyjmują oraz zwracają dane w formacie JSON. 
 
