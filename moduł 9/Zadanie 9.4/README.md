@@ -43,5 +43,5 @@ Aplikacja udostępnia interfejs API. Wszystkie żądania przyjmują oraz zwracaj
 * **`POST /api/v1/books/`** – Tworzy nowy wpis książki. 
   * *Wymagany format JSON:* `{"title": "Tytuł", "author": "Autor", "year": 2026, "is_read": false}`
 * **`GET /api/v1/books/<id>`** – Pobiera szczegółowe dane jednej książki o konkretnym identyfikatorze numerycznym. Zwraca błąd 404, jeśli obiekt nie istnieje.
-* **`PUT /api/v1/books/<id>`** – Aktualizuje dane istniejącej książki (umożliwia pełną lub częściową modyfikację pól). Zwraca błąd 404 w przypadku braku książki lub 400 przy błędnych typach danych.
+* **`PUT /api/v1/books/<id>`** – Aktualizuje dane istniejącej książki. Zwraca błąd 404 w przypadku braku książki lub 400 przy błędnych typach danych.
 * **`DELETE /api/v1/books/<id>`** – Usuwa wybraną książkę z bazy danych i zapisuje zmiany. Zwraca błąd 404, jeśli obiekt nie istnieje.
